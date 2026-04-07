@@ -1,0 +1,360 @@
+@import "tailwindcss";
+
+/* ══════════════════════════════════════════
+   DESIGN TOKENS
+══════════════════════════════════════════ */
+:root {
+  --blue:        #0066FF;
+  --blue-light:  #3388FF;
+  --blue-deep:   #0044CC;
+
+  --dark:        #0a0a0a;
+  --surface:     #111111;
+  --light:       #F5F6F8;
+  --white:       #FBFCFE;
+
+  --text:        #1a1a1a;
+  --text-secondary: #555;
+  --text-muted:  #888;
+
+  --green:       #22C55E;
+  --red:         #EF4444;
+  --gold:        #F59E0B;
+
+  --shadow-card:
+    0 1px 2px rgba(0,0,0,0.06),
+    0 4px 16px rgba(0,0,0,0.05),
+    0 12px 40px rgba(0,0,0,0.04);
+
+  --shadow-card-hover:
+    0 4px 8px rgba(0,0,0,0.08),
+    0 16px 40px rgba(0,0,0,0.1),
+    0 32px 64px rgba(0,0,0,0.06);
+
+  --shadow-card-dark:
+    0 1px 2px rgba(0,0,0,0.35),
+    0 4px 16px rgba(0,0,0,0.25),
+    0 12px 32px rgba(0,0,0,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+/* ══════════════════════════════════════════
+   BASE — HELL als Standard
+══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; overflow-x: clip; }
+body {
+  overflow-x: clip;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--white);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+/* Italic gradient — the wow moment */
+.italic-gradient {
+  font-style: italic;
+  background: linear-gradient(135deg, #0066FF 0%, #00AAFF 50%, #0044CC 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ══════════════════════════════════════════
+   HERO ENTRANCE — CSS animation, not GSAP
+   (above fold = no opacity:0 wait)
+══════════════════════════════════════════ */
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(32px); filter: blur(4px); }
+  to   { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+.hero-entrance {
+  animation: hero-fade-up 0.9s cubic-bezier(0.16,1,0.3,1) both;
+}
+.hero-entrance-d1 { animation-delay: 0.12s; }
+.hero-entrance-d2 { animation-delay: 0.24s; }
+.hero-entrance-d3 { animation-delay: 0.36s; }
+.hero-entrance-d4 { animation-delay: 0.48s; }
+
+a  { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+::selection { background: rgba(0,102,255,0.15); color: inherit; }
+
+/* ══════════════════════════════════════════
+   SECTION THEMES
+══════════════════════════════════════════ */
+.s-white   { background: var(--white); color: var(--text); }
+.s-light   { background: var(--light); color: var(--text); }
+.s-dark    { background: var(--dark); color: #fff; }
+.s-dark h1, .s-dark h2, .s-dark h3, .s-dark h4 { color: #fff; }
+
+/* ══════════════════════════════════════════
+   TYPOGRAPHY UTILITIES
+══════════════════════════════════════════ */
+.gradient-title-dark {
+  background: linear-gradient(180deg, #fff 10%, #888 95%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.blue-gradient-text {
+  background: linear-gradient(90deg, #0066FF 0%, #0044CC 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ══════════════════════════════════════════
+   SECTION LABELS
+══════════════════════════════════════════ */
+.section-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+/* ══════════════════════════════════════════
+   SCROLL REVEAL — GSAP
+══════════════════════════════════════════ */
+.reveal, .reveal-left, .reveal-right, .reveal-scale {
+  opacity: 0;
+  will-change: opacity, transform, filter;
+}
+@media (scripting: none) {
+  .reveal, .reveal-left, .reveal-right, .reveal-scale { opacity: 1 !important; }
+}
+
+/* ══════════════════════════════════════════
+   CTA BUTTON — 4 Layer 3D Depth
+   Layer 1: Outer shadow shell (deep 3D lift)
+   Layer 2: Base face with subtle gradient
+   Layer 3: Grid pattern (::before) — 24px, visible
+   Layer 4: Top gloss (::after)
+══════════════════════════════════════════ */
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: #fff;
+  padding: 18px 38px;
+  border-radius: 48px;
+  cursor: pointer;
+  background: linear-gradient(180deg, #222 0%, #161616 100%);
+  /* Layer 1: Deep 3D shadow stack */
+  box-shadow:
+    /* hard bottom edge — the "thickness" */
+    0 4px 0 0 #0a0a0a,
+    /* soft near shadow */
+    0 6px 8px rgba(0,0,0,0.3),
+    /* mid depth */
+    0 12px 24px rgba(0,0,0,0.2),
+    /* far ambient */
+    0 24px 56px rgba(0,0,0,0.12),
+    /* inner top lit edge */
+    inset 0 1px 0 rgba(255,255,255,0.08);
+  transition:
+    transform 0.2s cubic-bezier(0.16,1,0.3,1),
+    box-shadow 0.2s cubic-bezier(0.16,1,0.3,1);
+  overflow: hidden;
+}
+
+/* Layer 3: Grid pattern — 24px, visible, premium */
+.cta-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Layer 4: Diagonal shine sweep — slow shimmer across grid */
+@keyframes btn-shine {
+  0%   { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(250%) skewX(-15deg); }
+}
+.cta-btn::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 0;
+  width: 40%;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255,255,255,0.06) 35%,
+    rgba(255,255,255,0.12) 50%,
+    rgba(255,255,255,0.06) 65%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+  animation: btn-shine 4s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.cta-btn > * { position: relative; z-index: 3; }
+
+/* Hover: lifts further, shadow deepens */
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 0 0 #0a0a0a,
+    0 8px 12px rgba(0,0,0,0.35),
+    0 18px 36px rgba(0,0,0,0.25),
+    0 32px 72px rgba(0,0,0,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+/* Active: pressed flat */
+.cta-btn:active {
+  transform: translateY(2px);
+  box-shadow:
+    0 1px 0 0 #0a0a0a,
+    0 2px 4px rgba(0,0,0,0.3),
+    0 4px 8px rgba(0,0,0,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+/* ── Dark section: blue 3D variant ─────────── */
+.s-dark .cta-btn {
+  background: linear-gradient(180deg, #2563EB 0%, #1a4fd4 100%);
+  box-shadow:
+    0 4px 0 0 #143da0,
+    0 6px 8px rgba(0,0,0,0.3),
+    0 12px 24px rgba(0,102,255,0.2),
+    0 24px 56px rgba(0,0,0,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+}
+.s-dark .cta-btn::before {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.12) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.s-dark .cta-btn:hover {
+  box-shadow:
+    0 6px 0 0 #143da0,
+    0 8px 12px rgba(0,0,0,0.35),
+    0 18px 36px rgba(0,102,255,0.3),
+    0 32px 72px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.15);
+}
+
+.cta-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: 1.5px solid rgba(0,0,0,0.15);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 14px 28px;
+  border-radius: 78px;
+  transition: all 0.2s;
+}
+.cta-btn-outline:hover {
+  border-color: rgba(0,0,0,0.3);
+  background: rgba(0,0,0,0.03);
+  transform: translateY(-1px);
+}
+
+/* ══════════════════════════════════════════
+   CONTAINER
+══════════════════════════════════════════ */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+@media (min-width: 768px)  { .container { padding: 0 48px; } }
+@media (min-width: 1400px) { .container { padding: 0 32px; } }
+
+/* ══════════════════════════════════════════
+   CARDS
+══════════════════════════════════════════ */
+.card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+  transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+.card:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-3px);
+}
+
+.dark-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  box-shadow: var(--shadow-card-dark);
+  transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+.dark-card:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.12);
+  transform: translateY(-3px);
+}
+
+/* ══════════════════════════════════════════
+   IMAGE BREAKER
+══════════════════════════════════════════ */
+.image-breaker {
+  width: 100%;
+  height: 55vh;
+  min-height: 360px;
+  max-height: 600px;
+  overflow: hidden;
+  position: relative;
+}
+.image-breaker img {
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+  top: -10%;
+  left: 0;
+}
+
+/* ══════════════════════════════════════════
+   MARQUEE
+══════════════════════════════════════════ */
+@keyframes marquee         { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes marquee-reverse { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+.animate-marquee         { animation: marquee 38s linear infinite; }
+.animate-marquee-reverse { animation: marquee-reverse 34s linear infinite; }
+.animate-marquee:hover,
+.animate-marquee-reverse:hover { animation-play-state: paused; }
+
+/* ══════════════════════════════════════════
+   REDUCED MOTION
+══════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

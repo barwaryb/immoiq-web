@@ -1,0 +1,188 @@
+---
+const siteLinks = [
+  { label: 'Wie es funktioniert', href: '#process' },
+  { label: 'Ergebnisse',         href: '#results' },
+  { label: 'Pricing',            href: '#pricing' },
+  { label: 'FAQ',                href: '#faq' },
+]
+---
+
+<footer class="ft-wrap">
+  <div class="container ft-container">
+
+    <div class="ft-top">
+
+      <!-- Brand column -->
+      <div class="ft-brand">
+        <a href="/" class="ft-logo-link">
+          <img src="/images/Logo/logo.png" alt="ImmoIQ" class="ft-logo-img" />
+          <span class="ft-logo-text">Immo<span class="ft-logo-accent">IQ</span></span>
+        </a>
+
+        <p class="ft-tagline">
+          KI-gestützte Portfolioanalyse für private Immobilienbesitzer. Wir zeigen dir, wo dein Geld liegen bleibt — und wie du es holst.
+        </p>
+
+        <div class="ft-address-block">
+          <span class="ft-flag">🇩🇪</span>
+          <p class="ft-address">WBD Gruppe<br/>Deutschland</p>
+        </div>
+
+        <!-- Founder contact -->
+        <div class="ft-contact">
+          <div class="ft-avatar-wrap">
+            <div class="ft-avatar">MB</div>
+            <span class="ft-online-dot"></span>
+          </div>
+          <div>
+            <p class="ft-name">Max Bertlein</p>
+            <p class="ft-status">Erreichbar</p>
+            <a href="mailto:max@immoiq.de" class="ft-email">max@immoiq.de</a>
+          </div>
+        </div>
+
+        <a href="#calendly" class="cta-btn-outline ft-cta">
+          Kostenloses Gespräch buchen
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+        </a>
+      </div>
+
+      <!-- Link columns -->
+      <div class="ft-cols">
+
+        <div class="ft-col">
+          <h4 class="ft-col-title">Seiten</h4>
+          <ul class="ft-link-list">
+            {siteLinks.map(l => (
+              <li><a href={l.href} class="ft-link">{l.label}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="ft-col">
+          <h4 class="ft-col-title">Social Media</h4>
+          <ul class="ft-link-list">
+            <li>
+              <a href="#" class="ft-link ft-social-link" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                Instagram
+              </a>
+            </li>
+            <li>
+              <a href="#" class="ft-link ft-social-link" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                LinkedIn
+              </a>
+            </li>
+          </ul>
+
+          <h4 class="ft-col-title" style="margin-top:32px">Rechtliches</h4>
+          <ul class="ft-link-list">
+            <li><a href="/impressum" class="ft-link">Impressum</a></li>
+            <li><a href="/datenschutz" class="ft-link">Datenschutz</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="ft-bottom">
+      <p class="ft-copy">&copy; {new Date().getFullYear()} ImmoIQ · WBD Gruppe. Alle Rechte vorbehalten.</p>
+      <div class="ft-trust">
+        <span class="ft-stars">★★★★★</span>
+        <span>12 Monate Geld-zurück-Garantie</span>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  .ft-wrap {
+    background: #0a0a0a;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .ft-container { padding-top: 72px; padding-bottom: 0; }
+
+  .ft-top {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    margin-bottom: 64px;
+  }
+  @media (min-width: 900px) {
+    .ft-top { flex-direction: row; justify-content: space-between; gap: 48px; }
+  }
+
+  .ft-brand { max-width: 320px; flex-shrink: 0; }
+
+  .ft-logo-link { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+  .ft-logo-img {
+    width: 32px; height: 32px; object-fit: contain;
+  }
+  .ft-logo-text { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 18px; color: #fff; }
+  .ft-logo-accent { color: #3388FF; }
+
+  .ft-tagline {
+    font-size: 13px; line-height: 1.65;
+    color: rgba(255,255,255,0.38); margin: 0 0 24px;
+  }
+
+  .ft-address-block { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 24px; }
+  .ft-flag { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .ft-address { font-size: 12px; line-height: 1.7; color: rgba(255,255,255,0.28); margin: 0; }
+
+  .ft-contact { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 24px; }
+  .ft-avatar-wrap { position: relative; flex-shrink: 0; }
+  .ft-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, #3388FF, #0044CC);
+    border: 1.5px solid rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; color: #fff;
+  }
+  .ft-online-dot {
+    position: absolute; bottom: 0; right: 0;
+    width: 10px; height: 10px;
+    background: #22c55e;
+    border: 2px solid #040710;
+    border-radius: 50%;
+  }
+  .ft-name { font-weight: 600; font-size: 13px; color: #fff; margin: 0 0 1px; }
+  .ft-status { font-size: 11px; color: #22c55e; margin: 0 0 3px; }
+  .ft-email { font-size: 12px; color: rgba(255,255,255,0.4); transition: color 0.2s; }
+  .ft-email:hover { color: var(--blue); }
+
+  .ft-cta { font-size: 13px; padding: 10px 20px; }
+
+  .ft-cols {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 32px 48px;
+    flex: 1;
+    justify-content: flex-end;
+  }
+
+  .ft-col-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700; font-size: 10px;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--blue); margin: 0 0 16px;
+  }
+  .ft-link-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .ft-link { font-size: 13px; color: rgba(255,255,255,0.4); transition: color 0.2s; }
+  .ft-link:hover { color: rgba(255,255,255,0.85); }
+  .ft-social-link { display: flex; align-items: center; gap: 8px; }
+
+  .ft-bottom {
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 24px 0 32px;
+    display: flex; flex-direction: column; gap: 10px; align-items: center;
+  }
+  @media (min-width: 640px) {
+    .ft-bottom { flex-direction: row; justify-content: space-between; }
+  }
+  .ft-copy { font-size: 12px; color: rgba(255,255,255,0.22); margin: 0; }
+  .ft-trust { display: flex; align-items: center; gap: 8px; font-size: 12px; color: rgba(255,255,255,0.22); }
+  .ft-stars { color: var(--gold); font-size: 11px; letter-spacing: 2px; }
+</style>

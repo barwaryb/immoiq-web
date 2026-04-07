@@ -1,0 +1,121 @@
+---
+import VideoPlayer from '../ui/VideoPlayer.tsx'
+---
+
+<section class="hero-section s-white">
+  <div class="container">
+
+    <p class="section-label hero-label reveal">ImmoIQ · Portfoliooptimierung</p>
+
+    <h1 class="hero-h1 reveal reveal-d1">
+      Dein Portfolio hat<br/>
+      40–50.000€ <em class="italic-gradient">Potenzial.</em>
+    </h1>
+
+    <p class="hero-sub reveal reveal-d2">
+      Wir haben hunderte Portfolios durchgerechnet — bei jedem einzelnen lag Geld
+      auf dem Tisch. Mieterhöhungen, Steuervorteile, Wertsteigerungen. Im kostenlosen
+      Strategiecall zeig ich dir, ob das bei dir auch so ist.
+    </p>
+
+    <div class="hero-cta reveal reveal-d3">
+      <a href="#calendly" class="cta-btn">
+        Kostenloses Strategiegespräch
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+      </a>
+      <span class="hero-hint">30 Min · Kostenlos · Mit Max persönlich</span>
+    </div>
+  </div>
+</section>
+
+<!-- Full-bleed hero image -->
+<div class="image-breaker reveal reveal-d4">
+  <img src="/images/breaker-1.jpg" alt="Premium Immobilien" loading="eager" />
+</div>
+
+<!-- Video section -->
+<section class="s-white" style="padding: 80px 0 40px;">
+  <div class="container" style="max-width: 900px;">
+    <div class="hero-video card reveal">
+      <VideoPlayer
+        client:load
+        previewSrc="/video/preview.mp4"
+        fullSrc="/video/vsl.mp4"
+        posterSrc="/video/poster.jpg"
+      />
+    </div>
+    <div class="hero-trust reveal reveal-d1">
+      <div class="trust-item">
+        <span class="trust-val">800+</span>
+        <span class="trust-label">Deals begleitet</span>
+      </div>
+      <span class="trust-sep"></span>
+      <div class="trust-item">
+        <span class="trust-val">300M€</span>
+        <span class="trust-label">Volumen</span>
+      </div>
+      <span class="trust-sep"></span>
+      <div class="trust-item">
+        <span class="trust-val">150+</span>
+        <span class="trust-label">Eigene Einheiten</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section { padding: 180px 0 80px; }
+  @media (min-width: 768px) { .hero-section { padding: 220px 0 100px; } }
+
+  .hero-label { margin-bottom: 32px; }
+
+  .hero-h1 {
+    font-size: clamp(44px, 7.5vw, 92px);
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    margin: 0 0 40px;
+    max-width: 900px;
+  }
+  .hero-h1 em {
+    /* styled via .italic-gradient class */
+  }
+
+  .hero-sub {
+    color: var(--text-secondary);
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 560px;
+    margin: 0 0 40px;
+  }
+
+  .hero-cta {
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  @media (min-width: 640px) {
+    .hero-cta { flex-direction: row; align-items: center; gap: 24px; }
+  }
+  .hero-hint { color: var(--text-muted); font-size: 13px; }
+
+  .hero-video {
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .hero-trust {
+    display: flex; align-items: center; justify-content: center;
+    gap: 0; padding: 48px 0 0;
+  }
+  .trust-item { padding: 0 32px; text-align: center; }
+  .trust-val {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700; font-size: 22px; color: var(--text);
+    display: block; line-height: 1;
+  }
+  .trust-label {
+    display: block; margin-top: 4px;
+    color: var(--text-muted); font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.1em;
+  }
+  .trust-sep { width: 1px; height: 32px; background: rgba(0,0,0,0.1); }
+</style>

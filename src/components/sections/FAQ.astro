@@ -1,0 +1,101 @@
+---
+const faqs = [
+  { q: 'Ich hab nur 2–3 Wohnungen, lohnt sich das?', a: 'Gerade dann. Unser erster Testkunde hatte 4 Einheiten und hat im ersten Jahr 12.000€ gespart. Je kleiner das Portfolio, desto höher ist oft der relative Hebel — weil Steuervorteile und Mieterhöhungen komplett übersehen werden.' },
+  { q: 'Ich hab das mit Excel im Griff.', a: 'Kein Excel der Welt hat Zugriff auf Echtzeit-Marktdaten, Steuer-Simulationen und Fördermittel-Datenbanken gleichzeitig. Unsere KI vergleicht dein Portfolio mit tausenden Datenpunkten — das ist eine andere Liga.' },
+  { q: 'Mein Steuerberater macht das schon.', a: 'Dein Steuerberater optimiert deine Steuererklärung. Wir optimieren dein gesamtes Portfolio — Cashflow, Wertsteigerung, Finanzierung, Exit-Strategie. Das sind komplett unterschiedliche Dinge.' },
+  { q: '2.900€ ist viel Geld.', a: 'Wenn dein Potenzial bei 40.000€+ liegt, ist das ein 14× Return. Plus: 12 Monate Geld-zurück-Garantie. Du riskierst nichts.' },
+  { q: 'Ist jetzt der falsche Zeitpunkt?', a: 'Jeder Monat ohne Optimierung kostet dich Geld. Mieterhöhungen haben Fristen, Fördermittel laufen aus, Steuervorteile verfallen. Es gibt keinen falschen Zeitpunkt für mehr Rendite.' },
+  { q: 'Ich hab schon einen Berater.', a: 'Dann hast du jetzt eine zweite Meinung — datenbasiert und auf den Euro genau. Die meisten Kunden mit Beratern finden trotzdem fünfstelliges Potenzial.' },
+  { q: 'Was genau bekomme ich?', a: 'KI-Portfolioanalyse, 1:1 Strategiecall mit Max, Videoakademie mit Umsetzungs-Vorlagen, professionelle Gutachten und Sanierungsfahrpläne. Alles zusammen im Wert von über 8.400€.' },
+]
+---
+
+<section class="s-light" id="faq" style="padding:120px 0 140px;">
+  <div class="container">
+    <div class="faq-header reveal">
+      <p class="section-label label-blue" style="margin-bottom:16px">FAQ</p>
+      <h2 class="faq-h2">
+        Häufige Fragen.<br/>
+        <em class="italic-gradient">Ehrliche Antworten.</em>
+      </h2>
+    </div>
+
+    <div class="faq-list reveal-stagger">
+      {faqs.map((f, i) => (
+        <div class="faq-item light-card" data-faq={i}>
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-q">{f.q}</span>
+            <span class="faq-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p class="faq-a">{f.a}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-header { text-align: center; margin-bottom: 56px; }
+  .faq-h2 { font-size: clamp(32px, 5vw, 56px); line-height: 1.05; color: #0A0F1C; margin: 0; }
+  .faq-italic { color: #6B7280; font-style: italic; }
+
+  .faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+
+  .faq-item { padding: 0; overflow: hidden; }
+
+  .faq-trigger {
+    width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 20px 24px;
+    font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px;
+    color: #0A0F1C; text-align: left; cursor: pointer;
+    transition: color 0.2s;
+  }
+  .faq-trigger:hover { color: var(--blue); }
+
+  .faq-icon {
+    width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
+    background: rgba(0,102,255,0.06);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--blue);
+    transition: transform 0.3s, background 0.3s;
+  }
+  .faq-item.open .faq-icon { transform: rotate(45deg); background: rgba(0,102,255,0.12); }
+
+  .faq-answer {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+  .faq-item.open .faq-answer { max-height: 300px; }
+
+  .faq-a {
+    padding: 0 24px 20px;
+    color: #4A5568; font-size: 14px; line-height: 1.7; margin: 0;
+  }
+
+  .faq-item.open { border-color: rgba(0,102,255,0.2); background: #F8F8F6; }
+</style>
+
+<script>
+  document.querySelectorAll('.faq-trigger').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item')!
+      const wasOpen = item.classList.contains('open')
+
+      // Close all
+      document.querySelectorAll('.faq-item.open').forEach(i => {
+        i.classList.remove('open')
+        i.querySelector('.faq-trigger')?.setAttribute('aria-expanded', 'false')
+      })
+
+      // Toggle current
+      if (!wasOpen) {
+        item.classList.add('open')
+        btn.setAttribute('aria-expanded', 'true')
+      }
+    })
+  })
+</script>

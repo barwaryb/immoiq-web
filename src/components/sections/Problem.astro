@@ -1,0 +1,132 @@
+---
+const painPoints = [
+  { label: 'Mieterhöhungen', cost: '15.000€', pct: 20 },
+  { label: 'Steuervorteile', cost: '12.000€', pct: 16 },
+  { label: 'Wertsteigerung', cost: '30.000€', pct: 40 },
+  { label: 'Fördermittel', cost: '8.000€', pct: 11 },
+  { label: 'Finanzierung', cost: '10.000€', pct: 13 },
+]
+---
+
+<section class="s-white" style="padding:140px 0 160px;">
+  <div class="container prob-grid">
+
+    <div class="prob-copy reveal-left">
+      <p class="section-label" style="color: var(--red); margin-bottom:16px;">Das Problem</p>
+      <h2 class="prob-h2">
+        Du verlierst jeden Monat Geld.
+        <br/><em class="italic-gradient">Ohne es zu merken.</em>
+      </h2>
+      <p class="prob-body">
+        Die meisten Immobilienbesitzer glauben, ihr Portfolio läuft gut.
+        Die Realität: Bei <strong>jedem einzelnen Portfolio</strong> das wir analysiert haben,
+        lag Geld auf dem Tisch. Nicht hunderte Euro — <strong>Zehntausende.</strong>
+      </p>
+      <p class="prob-quote">
+        „Als wir unser eigenes Portfolio mit 150 Einheiten durchgerechnet haben, war das ein Schock."
+        <br/><span class="prob-author">— Max Bertlein, Gründer</span>
+      </p>
+    </div>
+
+    <div class="prob-chart reveal-right">
+      <!-- Chart card — hell -->
+      <div class="card prob-card">
+        <div class="chart-header">
+          <p class="chart-title">Was dich dein Portfolio jährlich kostet:</p>
+        </div>
+        <div class="chart-bars">
+          {painPoints.map(p => (
+            <div class="bar-row" >
+              <div class="bar-info">
+                <span class="bar-label">{p.label}</span>
+                <span class="bar-cost">-{p.cost}</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill" style={`--w: ${p.pct * 2.5}%`}></div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div class="chart-total">
+          <span>Gesamt / Jahr</span>
+          <span class="total-val">-75.000€</span>
+        </div>
+      </div>
+
+      <!-- Before / After — helle Karten -->
+      <div class="ba-grid">
+        <div class="card ba-card ba-before">
+          <span class="ba-tag">Vorher</span>
+          <span class="ba-num ba-red">2,4%</span>
+          <span class="ba-desc">Durchschnittsrendite</span>
+        </div>
+        <div class="card ba-card ba-after">
+          <span class="ba-tag ba-tag-green">Nachher</span>
+          <span class="ba-num ba-green">6,2%</span>
+          <span class="ba-desc">Nach Optimierung</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .prob-grid { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: start; }
+  @media (min-width: 1024px) { .prob-grid { grid-template-columns: 1fr 1fr; gap: 80px; } }
+
+  .prob-h2 { font-size: clamp(32px, 5vw, 52px); line-height: 1.08; margin: 0 0 28px; }
+  .prob-h2 em { /* styled via .italic-gradient */ }
+  .prob-body { color: var(--text-secondary); font-size: 17px; line-height: 1.7; margin: 0 0 32px; }
+  .prob-body strong { color: var(--text); }
+  .prob-quote { color: var(--text-muted); font-size: 15px; font-style: italic; line-height: 1.6; }
+  .prob-author { font-style: normal; font-weight: 600; color: var(--text-secondary); }
+
+  .prob-card { overflow: hidden; padding: 0; }
+  .chart-header { padding: 24px 28px; border-bottom: 1px solid rgba(0,0,0,0.06); }
+  .chart-title { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 15px; margin: 0; color: var(--text); }
+  .chart-bars { padding: 24px 28px; display: flex; flex-direction: column; gap: 18px; }
+
+  .bar-info { display: flex; justify-content: space-between; margin-bottom: 6px; }
+  .bar-label { color: var(--text-secondary); font-size: 13px; font-weight: 500; }
+  .bar-cost { font-family: 'JetBrains Mono', monospace; color: var(--red); font-size: 13px; font-weight: 600; }
+
+  .bar-track { height: 24px; border-radius: 999px; background: rgba(0,0,0,0.04); overflow: hidden; }
+  .bar-fill {
+    height: 100%; border-radius: 999px;
+    background: linear-gradient(90deg, #FCA5A5, #EF4444);
+    width: 0;
+    transition: width 1s cubic-bezier(0.22,1,0.36,1);
+  }
+  .bar-fill.animate { width: var(--w); }
+
+  .chart-total {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 28px; border-top: 1px solid rgba(0,0,0,0.06);
+    font-weight: 700; font-size: 15px;
+  }
+  .total-val { font-family: 'JetBrains Mono', monospace; font-size: 20px; color: var(--red); }
+
+  .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+  .ba-card { padding: 28px; text-align: center; }
+  .ba-tag { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 8px; color: var(--red); }
+  .ba-tag-green { color: var(--green); }
+  .ba-num { display: block; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: clamp(36px, 5vw, 48px); line-height: 1; }
+  .ba-red { color: var(--red); }
+  .ba-green { color: var(--green); }
+  .ba-desc { display: block; margin-top: 8px; color: var(--text-muted); font-size: 13px; }
+</style>
+
+<script>
+  const chart = document.querySelector('.prob-card')
+  if (chart) {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        chart.querySelectorAll('.bar-fill').forEach((bar, i) => {
+          setTimeout(() => bar.classList.add('animate'), i * 120)
+        })
+        observer.disconnect()
+      }
+    }, { threshold: 0.3 })
+    observer.observe(chart)
+  }
+</script>

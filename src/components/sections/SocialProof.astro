@@ -1,0 +1,92 @@
+---
+const testimonials = [
+  { name: 'Thomas K.', result: '+12.400€', quote: 'Allein durch die Steueroptimierung fast 12.000 Euro im ersten Jahr gespart — bei nur 4 Einheiten.', units: '4 Einheiten' },
+  { name: 'Sandra M.', result: '+28.900€', quote: 'Ich dachte, mein Portfolio läuft gut. Dann kam der Report. 28.900€ Potenzial — das hätte ich nie selbst gefunden.', units: '7 Einheiten' },
+  { name: 'Andreas R.', result: '+8.200€', quote: 'Für 3 Wohnungen hat sich das sofort gelohnt. Der Fahrplan war glasklar.', units: '3 Einheiten' },
+  { name: 'Maria B.', result: '+47.000€', quote: 'Bei 11 Einheiten lag so viel auf dem Tisch — Fördermittel, die ich gar nicht kannte.', units: '11 Einheiten' },
+  { name: 'Peter W.', result: '+6.800€', quote: 'Skeptisch reingegangen, begeistert rausgekommen. Die Analyse war auf den Euro genau.', units: '2 Einheiten' },
+]
+const row1 = [...testimonials, ...testimonials]
+const row2 = [...[...testimonials].reverse(), ...[...testimonials].reverse()]
+---
+
+<section class="s-light" style="padding:140px 0 140px; overflow:hidden;">
+  <div class="container">
+    <div class="sp-header reveal">
+      <p class="section-label" style="margin-bottom:16px">Ergebnisse</p>
+      <h2 class="sp-h2">
+        Echte Portfolios.
+        <em class="italic-gradient">Echte Ergebnisse.</em>
+      </h2>
+    </div>
+  </div>
+
+  <div class="sp-marquee-wrap">
+    <div class="sp-fade sp-fade-left"></div>
+    <div class="sp-fade sp-fade-right"></div>
+    <div class="sp-track animate-marquee">
+      {row1.map(t => (
+        <div class="sp-card card">
+          <div class="sp-card-top">
+            <div>
+              <span class="sp-name">{t.name}</span>
+              <span class="sp-units">{t.units}</span>
+            </div>
+            <span class="sp-result">{t.result}/Jahr</span>
+          </div>
+          <p class="sp-quote">„{t.quote}"</p>
+          <div class="sp-stars">★★★★★</div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="sp-marquee-wrap" style="margin-top:12px;">
+    <div class="sp-fade sp-fade-left"></div>
+    <div class="sp-fade sp-fade-right"></div>
+    <div class="sp-track animate-marquee-reverse">
+      {row2.map(t => (
+        <div class="sp-card card">
+          <div class="sp-card-top">
+            <div>
+              <span class="sp-name">{t.name}</span>
+              <span class="sp-units">{t.units}</span>
+            </div>
+            <span class="sp-result">{t.result}/Jahr</span>
+          </div>
+          <p class="sp-quote">„{t.quote}"</p>
+          <div class="sp-stars">★★★★★</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .sp-header { margin-bottom: 56px; }
+  .sp-h2 { font-size: clamp(32px, 5vw, 56px); line-height: 1.08; margin: 0; }
+  .sp-h2 em { /* styled via .italic-gradient */ }
+
+  .sp-marquee-wrap { position: relative; overflow: hidden; }
+  .sp-fade { position: absolute; top: 0; bottom: 0; width: 10vw; z-index: 2; pointer-events: none; }
+  .sp-fade-left  { left: 0; background: linear-gradient(90deg, var(--light), transparent); }
+  .sp-fade-right { right: 0; background: linear-gradient(270deg, var(--light), transparent); }
+
+  .sp-track { display: flex; width: max-content; }
+
+  .sp-card {
+    width: 320px; flex-shrink: 0; padding: 28px; margin: 0 6px;
+    display: flex; flex-direction: column;
+  }
+
+  .sp-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+  .sp-name { display: block; font-weight: 600; font-size: 15px; color: var(--text); }
+  .sp-units { display: block; font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+  .sp-result {
+    font-family: 'JetBrains Mono', monospace; font-weight: 700;
+    font-size: 14px; color: var(--green); white-space: nowrap;
+  }
+
+  .sp-quote { color: var(--text-secondary); font-size: 14px; line-height: 1.6; margin: 0 0 16px; flex: 1; }
+  .sp-stars { color: var(--gold); font-size: 14px; letter-spacing: 2px; }
+</style>

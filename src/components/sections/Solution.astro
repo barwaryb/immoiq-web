@@ -1,0 +1,111 @@
+---
+const services = [
+  {
+    num: '001',
+    title: 'KI-Portfolioanalyse',
+    titleAccent: '& Cashflow-Optimierung',
+    desc: 'Cashflow, Steuern, Finanzierung, Exit — auf den Euro genau. Unsere KI hat Zugriff auf Marktdaten für jede Lage in Deutschland.',
+  },
+  {
+    num: '002',
+    title: 'Persönlicher Fahrplan',
+    titleAccent: '& Strategiecall',
+    desc: '1:1 Strategiecall mit Max, Videoakademie, fertige Vorlagen. Alles so aufgebaut, dass du jede Optimierung selbst umsetzen kannst.',
+  },
+  {
+    num: '003',
+    title: 'Gutachten',
+    titleAccent: '& Sanierungsfahrpläne',
+    desc: 'Professionelle Sanierungsfahrpläne und Gutachten — allein mehrere tausend Euro wert. Deine Verhandlungsgrundlage.',
+  },
+]
+---
+
+<section class="s-dark" id="results" style="padding: 140px 0 120px;">
+  <div class="container">
+
+    <div class="sol-header reveal">
+      <p class="section-label" style="margin-bottom: 24px;">Die Lösung</p>
+      <h2 class="sol-h2 gradient-title-dark">
+        Alles was du brauchst.
+      </h2>
+      <p class="sol-italic italic-gradient">Um dein Portfolio zu maximieren.</p>
+    </div>
+
+    <div class="sol-list">
+      {services.map((s, i) => (
+        <div class={`sol-item reveal ${i > 0 ? 'reveal-d' + i : ''}`}>
+          <div class="sol-num">{s.num}</div>
+          <div class="sol-content">
+            <h3 class="sol-title">
+              {s.title} <em>{s.titleAccent}</em>
+            </h3>
+            <p class="sol-desc">{s.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div style="margin-top: 64px;" class="reveal">
+      <a href="#calendly" class="cta-btn">
+        Jetzt Portfolio durchrechnen lassen
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sol-header { margin-bottom: 64px; }
+  .sol-h2 {
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.05;
+    margin: 0 0 12px;
+  }
+  .sol-italic {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(24px, 3.5vw, 40px);
+    color: rgba(255,255,255,0.35);
+    margin: 0;
+  }
+
+  .sol-list {
+    max-width: 900px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .sol-item {
+    display: flex;
+    gap: 24px;
+    padding: 48px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    align-items: flex-start;
+  }
+  @media (min-width: 768px) { .sol-item { gap: 48px; padding: 56px 0; } }
+
+  .sol-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500; font-size: 14px;
+    color: rgba(255,255,255,0.3);
+    flex-shrink: 0; padding-top: 8px; min-width: 40px;
+  }
+
+  .sol-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700; font-size: clamp(20px, 2.5vw, 28px);
+    color: #fff; margin: 0 0 12px;
+    letter-spacing: -0.02em; line-height: 1.3;
+  }
+  .sol-title em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-weight: 400;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .sol-desc {
+    color: rgba(255,255,255,0.6);
+    font-size: 15px; line-height: 1.7;
+    margin: 0; max-width: 520px;
+  }
+</style>

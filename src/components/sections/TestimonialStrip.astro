@@ -1,0 +1,45 @@
+---
+const results = [
+  { name: 'Thomas K.', units: '4 Einheiten', saved: '+12.400€' },
+  { name: 'Sandra M.', units: '7 Einheiten', saved: '+28.900€' },
+  { name: 'Andreas R.', units: '3 Einheiten', saved: '+8.200€' },
+  { name: 'Maria B.', units: '11 Einheiten', saved: '+47.000€' },
+  { name: 'Peter W.', units: '2 Einheiten', saved: '+6.800€' },
+  { name: 'Julia F.', units: '6 Einheiten', saved: '+19.500€' },
+  { name: 'Michael H.', units: '9 Einheiten', saved: '+34.100€' },
+  { name: 'Claudia S.', units: '5 Einheiten', saved: '+15.700€' },
+]
+const doubled = [...results, ...results]
+---
+
+<section class="strip-section" style="padding:28px 0; border-top:1px solid rgba(0,0,0,0.06); border-bottom:1px solid rgba(0,0,0,0.06); overflow:hidden; background:var(--white);">
+  <div class="strip-track">
+    <div class="strip-inner animate-marquee">
+      {doubled.map(r => (
+        <div class="strip-item">
+          <span class="strip-name">{r.name}</span>
+          <span class="strip-dot">·</span>
+          <span class="strip-units">{r.units}</span>
+          <span class="strip-saved">{r.saved}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .strip-track { overflow: hidden; }
+  .strip-inner { display: flex; width: max-content; }
+
+  .strip-item {
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 36px; white-space: nowrap;
+  }
+  .strip-name { color: var(--text); font-size: 14px; font-weight: 600; }
+  .strip-dot { color: var(--text-muted); }
+  .strip-units { color: var(--text-muted); font-size: 13px; }
+  .strip-saved {
+    font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 14px;
+    color: var(--green);
+  }
+</style>
