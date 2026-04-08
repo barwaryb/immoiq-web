@@ -3,26 +3,46 @@ import Layout from '../layouts/Layout.astro'
 import Hero from '../components/sections/Hero.astro'
 import StatsBar from '../components/sections/StatsBar.astro'
 import Problem from '../components/sections/Problem.astro'
-import TestimonialStrip from '../components/sections/TestimonialStrip.astro'
 import Solution from '../components/sections/Solution.astro'
 import ImageBreaker from '../components/sections/ImageBreaker.astro'
 import Authority from '../components/sections/Authority.astro'
-import SocialProof from '../components/sections/SocialProof.astro'
 import Process from '../components/sections/Process.astro'
-// Pricing removed
+import Pricing from '../components/sections/Pricing.astro'
 import FAQ from '../components/sections/FAQ.astro'
 import FinalCTA from '../components/sections/FinalCTA.astro'
 ---
 
 <Layout>
+  <!-- 1. HERO — Transformation versprechen, Positioning, VSL -->
   <Hero />
+
+  <!-- 2. LOGOS — Sofortige Legitimität -->
   <StatsBar />
+
+  <!-- 3. PROBLEM — Schmerz verstärken -->
   <Problem />
+
+  <!-- 4. LÖSUNG — Was wir tun (001, 002, 003) -->
   <Solution />
+
+  <!-- 5. BREAKER — Visuelles Atmen -->
   <ImageBreaker src="/images/breaker-2.jpg" />
+
+  <!-- 6. AUTHORITY — Wer sind die Bertleins + Testimonial -->
   <Authority />
+
+  <!-- 7. PROCESS — Wie funktioniert's (Sticky Cards) -->
   <Process />
+
+  <!-- 8. BREAKER -->
   <ImageBreaker src="/images/breaker-3.jpg" />
+
+  <!-- 9. PRICING — DIY vs Premium -->
+  <Pricing />
+
+  <!-- 10. FAQ — Einwandbehandlung -->
   <FAQ />
+
+  <!-- 11. FINAL CTA — Letzte Conversion-Chance -->
   <FinalCTA />
 </Layout>

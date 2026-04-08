@@ -1,30 +1,30 @@
 ---
 ---
 
-<section class="s-white" style="padding:140px 0 100px;">
+<section class="s-white" style="padding:140px 0 60px;">
   <div class="container">
 
     <div class="auth-header reveal">
       <p class="section-label" style="margin-bottom:16px">Über uns</p>
       <h2 class="auth-h2">
-        800 Deals. 150 Einheiten.
-        <br/><em class="italic-gradient">Und selbst bei uns lag Geld auf dem Tisch.</em>
+        Nicht irgendein Tool.<br/>
+        <em class="italic-gradient">Gebaut von Leuten, die es selbst machen.</em>
       </h2>
     </div>
 
     <div class="auth-grid">
       <div class="auth-text reveal-left">
         <p class="auth-body">
-          Julian und ich besitzen selbst über 150 Einheiten. Als wir unsere eigenen
-          Portfolios durchgerechnet haben, war das ein Schock. Genau deshalb haben
-          wir ImmoIQ gebaut — damit kein Immobilienbesitzer mehr Geld auf dem Tisch
-          liegen lässt.
+          Julian und ich besitzen selbst über 150 Einheiten. Über 400 Millionen Euro
+          Transaktionsvolumen. Als wir unsere eigenen Portfolios mit der KI durchgerechnet
+          haben, war das ein Schock — auch bei uns lag Geld auf dem Tisch. Genau deshalb
+          haben wir ImmoIQ gebaut.
         </p>
         <div class="auth-author">
           <div class="auth-avatar">MB</div>
           <div>
             <p class="auth-name">Max Bertlein</p>
-            <p class="auth-role">Gründer, WBD Gruppe</p>
+            <p class="auth-role">Gründer · WBD Gruppe · 150+ eigene Einheiten</p>
           </div>
         </div>
 
@@ -34,22 +34,25 @@
         </div>
       </div>
 
-      <div class="auth-stats reveal-right">
-        <div class="auth-stat">
-          <span class="auth-stat-val">800+</span>
-          <span class="auth-stat-label">Deals begleitet</span>
-        </div>
-        <div class="auth-stat">
-          <span class="auth-stat-val">300M€</span>
-          <span class="auth-stat-label">Transaktionsvolumen</span>
-        </div>
-        <div class="auth-stat">
-          <span class="auth-stat-val">150+</span>
-          <span class="auth-stat-label">Eigene Einheiten</span>
-        </div>
-        <div class="auth-stat">
-          <span class="auth-stat-val">12k€</span>
-          <span class="auth-stat-label">Gespart — 1. Testkunde</span>
+      <!-- Real testimonial -->
+      <div class="auth-testimonial reveal-right">
+        <div class="card auth-quote-card">
+          <div class="auth-quote-top">
+            <span class="auth-stars">★★★★★</span>
+            <span class="auth-result">+12.400€/Jahr</span>
+          </div>
+          <blockquote class="auth-quote">
+            „Allein durch die Steueroptimierung fast 12.000 Euro im ersten Jahr gespart.
+            Und das bei nur 4 Einheiten. Der Report war auf den Euro genau — kein Vergleich
+            zu dem was mein Steuerberater bisher gesagt hat."
+          </blockquote>
+          <div class="auth-quote-author">
+            <div class="auth-quote-avatar">TK</div>
+            <div>
+              <p class="auth-quote-name">Thomas K.</p>
+              <p class="auth-quote-info">4 Einheiten · München</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -59,22 +62,21 @@
 <style>
   .auth-header { margin-bottom: 64px; }
   .auth-h2 { font-size: clamp(28px, 4.5vw, 48px); line-height: 1.1; margin: 0; }
-  .auth-h2 em { /* styled via .italic-gradient */ }
 
-  .auth-grid { display: grid; grid-template-columns: 1fr; gap: 56px; }
-  @media (min-width: 1024px) { .auth-grid { grid-template-columns: 1.2fr 1fr; gap: 80px; } }
+  .auth-grid { display: grid; grid-template-columns: 1fr; gap: 48px; }
+  @media (min-width: 1024px) { .auth-grid { grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: start; } }
 
   .auth-body { color: var(--text-secondary); font-size: 17px; line-height: 1.7; margin: 0 0 32px; }
 
-  .auth-author { display: flex; align-items: center; gap: 12px; margin-bottom: 32px; }
+  .auth-author { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
   .auth-avatar {
-    width: 48px; height: 48px; border-radius: 50%;
+    width: 52px; height: 52px; border-radius: 50%;
     background: var(--text); color: #fff;
     display: flex; align-items: center; justify-content: center;
-    font-size: 14px; font-weight: 700;
+    font-size: 15px; font-weight: 700;
   }
-  .auth-name { font-weight: 600; font-size: 15px; margin: 0; }
-  .auth-role { font-size: 13px; color: var(--text-muted); margin: 0; }
+  .auth-name { font-weight: 700; font-size: 16px; margin: 0; }
+  .auth-role { font-size: 13px; color: var(--text-muted); margin: 2px 0 0; }
 
   .auth-badges { display: flex; flex-wrap: wrap; gap: 10px; }
   .auth-badge {
@@ -83,18 +85,29 @@
     color: var(--text-secondary);
   }
 
-  .auth-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-  .auth-stat {
-    padding: 32px; border-radius: 16px;
-    background: var(--light);
-    text-align: center;
+  /* Testimonial card */
+  .auth-quote-card { padding: 36px; }
+  .auth-quote-top {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 20px;
   }
-  .auth-stat-val {
-    display: block; font-family: 'JetBrains Mono', monospace;
-    font-weight: 700; font-size: 32px; color: var(--text);
+  .auth-stars { color: var(--gold); font-size: 16px; letter-spacing: 2px; }
+  .auth-result {
+    font-family: 'JetBrains Mono', monospace; font-weight: 700;
+    font-size: 14px; color: var(--green);
   }
-  .auth-stat-label {
-    display: block; margin-top: 6px;
-    color: var(--text-muted); font-size: 13px;
+  .auth-quote {
+    font-size: 17px; line-height: 1.65; color: var(--text-secondary);
+    margin: 0 0 24px; font-style: normal;
   }
+  .auth-quote-author { display: flex; align-items: center; gap: 12px; }
+  .auth-quote-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--light); color: var(--text);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+  .auth-quote-name { font-weight: 600; font-size: 14px; margin: 0; }
+  .auth-quote-info { font-size: 12px; color: var(--text-muted); margin: 2px 0 0; }
 </style>

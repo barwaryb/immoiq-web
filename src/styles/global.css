@@ -45,7 +45,7 @@
 html { scroll-behavior: smooth; overflow-x: clip; }
 body {
   overflow-x: clip;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: var(--white);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
@@ -53,16 +53,19 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-weight: 300;
-  letter-spacing: -0.02em;
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
   color: var(--text);
 }
 
 /* Italic gradient — the wow moment */
+/* Serif Italic Gradient — the "wow" moment in headlines */
 .italic-gradient {
+  font-family: 'Cormorant Garamond', Georgia, serif;
   font-style: italic;
-  background: linear-gradient(135deg, #0066FF 0%, #00AAFF 50%, #0044CC 100%);
+  font-weight: 300;
+  background: linear-gradient(135deg, #0055EE 0%, #0088FF 50%, #0044CC 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -119,7 +122,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    SECTION LABELS
 ══════════════════════════════════════════ */
 .section-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Satoshi', sans-serif;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -150,7 +153,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: center;
   gap: 10px;
   position: relative;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Satoshi', sans-serif;
   font-weight: 600;
   font-size: 15px;
   color: #fff;
@@ -217,6 +220,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .cta-btn > * { position: relative; z-index: 3; }
 
+/* Mobile: buttons always centered */
+@media (max-width: 639px) {
+  .cta-btn { width: 100%; justify-content: center; }
+}
+
 /* Hover: lifts further, shadow deepens */
 .cta-btn:hover {
   transform: translateY(-2px);
@@ -270,7 +278,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background: transparent;
   border: 1.5px solid rgba(0,0,0,0.15);
   color: var(--text);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Satoshi', sans-serif;
   font-weight: 600;
   font-size: 15px;
   padding: 14px 28px;

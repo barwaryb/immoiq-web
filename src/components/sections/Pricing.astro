@@ -1,182 +1,194 @@
 ---
-const valueStack = [
-  { item: 'KI-Portfolioanalyse (auf den Euro genau)', value: '2.500€' },
-  { item: '1:1 Strategiecall mit Max Bertlein', value: '500€' },
-  { item: 'Videoakademie + Umsetzungs-Vorlagen', value: '1.200€' },
-  { item: 'Professionelle Gutachten', value: '1.800€' },
-  { item: 'Sanierungsfahrpläne', value: '2.400€' },
+const diyFeatures = [
+  'KI-Portfolioanalyse',
+  '1:1 Strategiecall mit Max',
+  'Optimierungsreport auf den Euro',
+  'Videoakademie + Vorlagen',
+  'E-Mail Support',
+]
+
+const premiumFeatures = [
+  'Alles aus Analyse — plus:',
+  'Professionelle Gutachten',
+  'Sanierungsfahrpläne',
+  'Mietanpassungs-Service',
+  'Fördermittelanträge',
+  'Persönlicher Ansprechpartner',
+  '12 Monate Begleitung',
 ]
 ---
 
-<section class="s-dark" id="pricing" style="padding:160px 0 180px; position:relative; overflow:hidden;">
-  <!-- Ambient glows -->
-  <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:800px; height:600px; border-radius:50%; background:rgba(0,68,204,0.1); filter:blur(160px); pointer-events:none;"></div>
-  <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:400px; height:300px; border-radius:50%; background:rgba(245,158,11,0.04); filter:blur(80px); pointer-events:none;"></div>
+<section class="s-light" id="pricing" style="padding:140px 0 140px;">
+  <div class="container">
 
-  <div class="container" style="position:relative;">
-    <div class="pr-header reveal">
-      <p class="section-label label-blue" style="margin-bottom:16px">Dein Investment</p>
+    <div class="pr-header reveal" style="text-align:center; margin-bottom:64px;">
+      <p class="section-label" style="margin-bottom:16px">Zwei Wege</p>
       <h2 class="pr-h2">
-        Einmal investieren.
-        <span class="pr-italic">Jedes Jahr profitieren.</span>
+        Du entscheidest, wie viel<br/>
+        <em class="italic-gradient">wir für dich übernehmen.</em>
       </h2>
+      <p class="pr-sub">Beide Wege starten mit dem gleichen kostenlosen Erstgespräch.</p>
     </div>
 
-    <div class="pr-card-wrap reveal-scale">
-      <!-- Gradient border wrapper -->
-      <div class="pr-border">
-        <div class="pr-card">
-          <!-- Gold top accent -->
-          <div class="pr-accent"></div>
-          <div class="pr-shimmer"></div>
+    <div class="pr-grid reveal-stagger">
 
-          <div class="pr-inner">
-            <!-- Urgency -->
-            <div class="pr-urgency">
-              <span class="pr-badge">⏱ Founders-Preis — Nur 30 Plätze</span>
-              <div class="pr-spots">
-                <span>23 von 30 vergeben</span>
-                <div class="pr-bar"><div class="pr-bar-fill"></div></div>
-              </div>
-            </div>
+      <!-- DIY -->
+      <div class="card pr-card">
+        <div class="pr-card-header">
+          <span class="pr-card-tag">Analyse</span>
+          <h3 class="pr-card-title">Du setzt um</h3>
+          <p class="pr-card-desc">Report + Fahrplan + Vorlagen. Du bekommst alles, was du brauchst — und setzt es selbst um.</p>
+        </div>
 
-            <!-- Price -->
-            <div class="pr-price">
-              <span class="pr-old">4.900€</span>
-              <span class="pr-current">2.900€</span>
-              <p class="pr-terms">Einmalzahlung · Kein Abo · Kein Risiko</p>
-              <p class="pr-return">
-                <span class="pr-dot"></span>
-                Bei 40.000€ Potenzial = 14× Return
-              </p>
-            </div>
+        <div class="pr-card-price">
+          <span class="pr-amount">4.900€</span>
+          <span class="pr-terms">Einmalzahlung · Kein Abo</span>
+        </div>
 
-            <!-- Value stack -->
-            <div class="pr-stack">
-              <p class="accent-text" style="margin-bottom:20px">Das bekommst du:</p>
-              {valueStack.map(v => (
-                <div class="pr-row">
-                  <div class="pr-check">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg>
-                  </div>
-                  <span class="pr-item">{v.item}</span>
-                  <span class="pr-val">{v.value}</span>
-                </div>
-              ))}
-              <div class="pr-total">
-                <span>Gesamtwert</span>
-                <div>
-                  <span class="pr-total-old">8.400€</span>
-                  <span class="pr-total-price">2.900€</span>
-                </div>
-              </div>
-            </div>
+        <ul class="pr-features">
+          {diyFeatures.map(f => (
+            <li class="pr-feature">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg>
+              {f}
+            </li>
+          ))}
+        </ul>
 
-            <!-- Guarantee -->
-            <div class="pr-guarantee">
-              <div class="pr-guarantee-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </div>
-              <div>
-                <p class="pr-guarantee-title">12 Monate Geld-zurück-Garantie</p>
-                <p class="pr-guarantee-text">Wenn du in 12 Monaten nicht mindestens das Doppelte rausholen kannst — jeden Cent zurück.</p>
-              </div>
-            </div>
-
-            <!-- CTA -->
-            <div class="pr-cta">
-              <a href="#calendly" class="cta-btn pr-cta-btn">
-                Jetzt Founders-Platz sichern
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
-              </a>
-              <p class="pr-cta-hint">30 Min · Kostenlos · Unverbindlich</p>
-            </div>
-          </div>
+        <div class="pr-card-cta">
+          <a href="#calendly" class="cta-btn-outline" style="width:100%; justify-content:center;">
+            Erstgespräch buchen
+          </a>
         </div>
       </div>
+
+      <!-- Premium -->
+      <div class="card pr-card pr-card-premium">
+        <span class="pr-popular">Beliebteste Wahl</span>
+        <div class="pr-card-header">
+          <span class="pr-card-tag pr-tag-premium">Premium</span>
+          <h3 class="pr-card-title">Wir machen alles</h3>
+          <p class="pr-card-desc">Analyse + Gutachten + Umsetzung. Wir optimieren dein gesamtes Portfolio — du lehnst dich zurück.</p>
+        </div>
+
+        <div class="pr-card-price">
+          <span class="pr-amount">Auf Anfrage</span>
+          <span class="pr-terms">Individuell nach Portfoliogröße</span>
+        </div>
+
+        <ul class="pr-features">
+          {premiumFeatures.map(f => (
+            <li class="pr-feature">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg>
+              {f}
+            </li>
+          ))}
+        </ul>
+
+        <div class="pr-card-cta">
+          <a href="#calendly" class="cta-btn" style="width:100%; justify-content:center;">
+            Erstgespräch buchen
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+          </a>
+        </div>
+      </div>
+
     </div>
+
+    <!-- Guarantee -->
+    <div class="pr-guarantee reveal" style="text-align:center; margin-top:48px;">
+      <p class="pr-guarantee-text">
+        🛡 12 Monate Geld-zurück-Garantie auf alle Pakete. Kein Risiko.
+      </p>
+    </div>
+
   </div>
 </section>
 
 <style>
-  .pr-header { text-align: center; margin-bottom: 56px; }
-  .pr-h2 { font-size: clamp(28px, 4vw, 48px); line-height: 1.1; color: #fff; margin: 0; }
-  .pr-italic { color: rgba(255,255,255,0.4); font-style: italic; }
+  .pr-h2 { font-size: clamp(28px, 4.5vw, 48px); line-height: 1.1; margin: 0 0 16px; }
+  .pr-sub { color: var(--text-muted); font-size: 16px; margin: 0; }
 
-  .pr-card-wrap { max-width: 640px; margin: 0 auto; }
-
-  .pr-border {
-    padding: 1px; border-radius: 24px;
-    background: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(0,102,255,0.2), rgba(255,255,255,0.06));
-    box-shadow: 0 40px 100px rgba(0,0,0,0.5), 0 0 80px rgba(0,102,255,0.12);
+  .pr-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    max-width: 860px;
+    margin: 0 auto;
   }
+  @media (min-width: 768px) {
+    .pr-grid { grid-template-columns: 1fr 1fr; }
+  }
+
   .pr-card {
-    border-radius: 24px; background: #0A1628; overflow: hidden; position: relative;
-  }
-  .pr-accent { height: 2px; background: linear-gradient(90deg, transparent, #F59E0B, transparent); }
-  .pr-shimmer { position: absolute; top: 0; left: 15%; right: 15%; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent); }
-
-  .pr-inner { padding: 32px; }
-  @media (min-width: 640px) { .pr-inner { padding: 48px; } }
-
-  .pr-urgency { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 32px; text-align: center; }
-  @media (min-width: 640px) { .pr-urgency { flex-direction: row; justify-content: center; } }
-  .pr-badge {
-    padding: 8px 16px; border-radius: 999px; font-size: 13px; font-weight: 600;
-    background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.25);
-    color: #F59E0B; white-space: nowrap;
-  }
-  .pr-spots { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.4); font-size: 12px; }
-  .pr-bar { width: 96px; height: 6px; border-radius: 999px; background: rgba(255,255,255,0.08); overflow: hidden; }
-  .pr-bar-fill { height: 100%; width: 77%; border-radius: 999px; background: linear-gradient(90deg, #F59E0B, #FBBF24); }
-
-  .pr-price { text-align: center; padding: 24px 0; margin-bottom: 32px; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
-  .pr-old { font-family: 'JetBrains Mono', monospace; font-size: 18px; color: rgba(255,255,255,0.25); text-decoration: line-through; text-decoration-color: rgba(239,68,68,0.5); margin-right: 16px; }
-  .pr-current {
-    font-family: 'JetBrains Mono', monospace; font-weight: 700;
-    font-size: clamp(48px, 7vw, 76px); color: #fff; line-height: 1;
-    text-shadow: 0 0 40px rgba(255,255,255,0.15);
-  }
-  .pr-terms { color: rgba(255,255,255,0.35); font-size: 13px; margin: 12px 0 0; letter-spacing: 0.04em; }
-  .pr-return { color: #22C55E; font-size: 14px; font-weight: 600; margin: 12px 0 0; display: flex; align-items: center; justify-content: center; gap: 8px; }
-  .pr-dot { width: 6px; height: 6px; border-radius: 50%; background: #22C55E; box-shadow: 0 0 6px rgba(34,197,94,0.6); }
-
-  .pr-stack { margin-bottom: 32px; }
-  .pr-row {
-    display: flex; align-items: center; gap: 12px; padding: 12px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-  }
-  .pr-row:last-of-type { border-bottom: none; }
-  .pr-check {
-    width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0;
-    background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.2);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .pr-item { color: rgba(255,255,255,0.85); font-size: 14px; font-weight: 500; flex: 1; }
-  .pr-val { color: rgba(255,255,255,0.4); font-family: 'JetBrains Mono', monospace; font-size: 12px; flex-shrink: 0; }
-
-  .pr-total { display: flex; justify-content: space-between; align-items: center; padding-top: 20px; margin-top: 8px; }
-  .pr-total > span { color: rgba(255,255,255,0.5); font-size: 14px; }
-  .pr-total-old { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: rgba(255,255,255,0.25); text-decoration: line-through; margin-right: 12px; }
-  .pr-total-price {
-    font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 22px;
-    background: linear-gradient(90deg, #F59E0B, #FBBF24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
   }
 
-  .pr-guarantee {
-    display: flex; align-items: flex-start; gap: 16px;
-    padding: 20px; border-radius: 16px;
-    background: rgba(34,197,94,0.04); border: 1px solid rgba(34,197,94,0.15);
-    margin-bottom: 32px;
+  .pr-card-premium {
+    border-color: var(--blue);
+    border-width: 2px;
   }
-  .pr-guarantee-icon {
-    width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
-    background: rgba(34,197,94,0.1); display: flex; align-items: center; justify-content: center;
-  }
-  .pr-guarantee-title { font-weight: 600; font-size: 14px; color: #fff; margin: 0 0 4px; }
-  .pr-guarantee-text { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.5; margin: 0; }
 
-  .pr-cta { text-align: center; }
-  .pr-cta-btn { width: 100%; justify-content: center; }
-  .pr-cta-hint { color: rgba(255,255,255,0.25); font-size: 12px; margin-top: 12px; letter-spacing: 0.04em; }
+  .pr-popular {
+    position: absolute;
+    top: -13px; left: 50%; transform: translateX(-50%);
+    background: var(--blue);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 99px;
+    white-space: nowrap;
+  }
+
+  .pr-card-header { margin-bottom: 28px; }
+  .pr-card-tag {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-muted); display: block; margin-bottom: 8px;
+  }
+  .pr-tag-premium { color: var(--blue); }
+  .pr-card-title {
+    font-size: 26px; font-weight: 700; letter-spacing: -0.02em;
+    margin: 0 0 8px;
+  }
+  .pr-card-desc {
+    font-size: 14px; line-height: 1.6; color: var(--text-secondary); margin: 0;
+  }
+
+  .pr-card-price {
+    padding: 20px 0;
+    margin-bottom: 24px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .pr-amount {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 36px;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+  .pr-terms {
+    display: block; margin-top: 4px;
+    font-size: 13px; color: var(--text-muted);
+  }
+
+  .pr-features {
+    list-style: none; padding: 0; margin: 0 0 32px;
+    display: flex; flex-direction: column; gap: 12px;
+    flex: 1;
+  }
+  .pr-feature {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 14px; color: var(--text-secondary);
+  }
+
+  .pr-card-cta { margin-top: auto; }
+
+  .pr-guarantee-text { font-size: 14px; color: var(--text-muted); }
 </style>

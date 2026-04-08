@@ -2,21 +2,21 @@
 const services = [
   {
     num: '001',
-    title: 'KI-Portfolioanalyse',
-    titleAccent: '& Cashflow-Optimierung',
-    desc: 'Cashflow, Steuern, Finanzierung, Exit — auf den Euro genau. Unsere KI hat Zugriff auf Marktdaten für jede Lage in Deutschland.',
+    title: 'Portfolioanalyse',
+    titleAccent: '— datenbasiert, nicht geraten',
+    desc: 'Unsere KI analysiert jede Einheit deines Portfolios: Cashflow, Steuern, Finanzierung, Exit-Szenarien. Basierend auf Echtzeit-Marktdaten für jede Lage in Deutschland.',
   },
   {
     num: '002',
-    title: 'Persönlicher Fahrplan',
-    titleAccent: '& Strategiecall',
-    desc: '1:1 Strategiecall mit Max, Videoakademie, fertige Vorlagen. Alles so aufgebaut, dass du jede Optimierung selbst umsetzen kannst.',
+    title: 'Optimierungsstrategie',
+    titleAccent: '— persönlich, nicht automatisiert',
+    desc: 'Im 1:1 Strategiegespräch gehen wir deinen Report durch, priorisieren die Hebel und erstellen einen konkreten Umsetzungsplan — abgestimmt auf deine Situation.',
   },
   {
     num: '003',
-    title: 'Gutachten',
-    titleAccent: '& Sanierungsfahrpläne',
-    desc: 'Professionelle Sanierungsfahrpläne und Gutachten — allein mehrere tausend Euro wert. Deine Verhandlungsgrundlage.',
+    title: 'Umsetzung',
+    titleAccent: '— mit System oder für dich',
+    desc: 'DIY mit Videoakademie und Vorlagen. Oder unser Premium-Team übernimmt: Gutachten, Sanierungsfahrpläne, Mietanpassungen, Fördermittelanträge — komplett.',
   },
 ]
 ---
@@ -25,11 +25,10 @@ const services = [
   <div class="container">
 
     <div class="sol-header reveal">
-      <p class="section-label" style="margin-bottom: 24px;">Die Lösung</p>
+      <p class="section-label" style="margin-bottom: 24px;">Was wir tun</p>
       <h2 class="sol-h2 gradient-title-dark">
-        Alles was du brauchst.
+        Drei Schritte zu einem<br/>Portfolio, das arbeitet.
       </h2>
-      <p class="sol-italic italic-gradient">Um dein Portfolio zu maximieren.</p>
     </div>
 
     <div class="sol-list">
@@ -46,9 +45,9 @@ const services = [
       ))}
     </div>
 
-    <div style="margin-top: 64px;" class="reveal">
+    <div style="margin-top: 64px; text-align:center;" class="reveal">
       <a href="#calendly" class="cta-btn">
-        Jetzt Portfolio durchrechnen lassen
+        Erstgespräch vereinbaren
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
       </a>
     </div>
@@ -58,15 +57,8 @@ const services = [
 <style>
   .sol-header { margin-bottom: 64px; }
   .sol-h2 {
-    font-size: clamp(36px, 5vw, 64px);
-    line-height: 1.05;
-    margin: 0 0 12px;
-  }
-  .sol-italic {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: clamp(24px, 3.5vw, 40px);
-    color: rgba(255,255,255,0.35);
+    font-size: clamp(32px, 5vw, 56px);
+    line-height: 1.08;
     margin: 0;
   }
 
@@ -92,19 +84,19 @@ const services = [
   }
 
   .sol-title {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Satoshi', sans-serif;
     font-weight: 700; font-size: clamp(20px, 2.5vw, 28px);
     color: #fff; margin: 0 0 12px;
     letter-spacing: -0.02em; line-height: 1.3;
   }
   .sol-title em {
     font-family: 'Cormorant Garamond', serif;
-    font-style: italic; font-weight: 400;
-    color: rgba(255,255,255,0.5);
+    font-style: italic; font-weight: 300;
+    color: rgba(255,255,255,0.45);
   }
 
   .sol-desc {
-    color: rgba(255,255,255,0.6);
+    color: rgba(255,255,255,0.55);
     font-size: 15px; line-height: 1.7;
     margin: 0; max-width: 520px;
   }
